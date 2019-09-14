@@ -29,7 +29,7 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
                    (tableChanged)="onChangeTable(config)"/>
           </td>
         </tr>
-          <template ngFor let-row [ngForOf]="rows" let-i= "index" >
+          <ng-template ngFor let-row [ngForOf]="rows" let-i= "index" >
           <tr [ngClass]="{'table-info': showExpandedRow && (i == expandedRowIndex) && expandable }">
             <td (click)="toggleRowExpansion(row, i)" *ngIf="expandable" (click)="cellClick(row, 'expand', i)" style="text-align:center; padding:0px; padding-top:7px;"><a style="width:100%; text-align:center;">
               <i [ngClass]="{'fa': true, 'fa-plus-circle': i != expandedRowIndex, 'fa-minus-circle' : i == expandedRowIndex}" style="font-size:1.5em; cursor:pointer"></i></a>
@@ -41,7 +41,7 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
                 <div [innerHtml]="sanitize(rowExpandContent)"></div>
               </td>
           </tr>
-          </template>
+          </ng-template>
         </tbody>
       </table>
     </div>
